@@ -16,3 +16,9 @@ would not work.
 
 The point of these scripts is to provide a neater and more standardized shell
 prompts across my computers.
+
+## Visuals
+
+### Custom Prompt on Zsh (macOS)
+
+![macOS custom prompt in Zsh](./.github/assets/macos-custom-prompt.png)
