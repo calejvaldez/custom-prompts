@@ -5,16 +5,17 @@
 
 function prompt {
     $gitBranch = git rev-parse --abbrev-ref HEAD
+	$username = $Env:UserName
     $currentPath = $executionContext.SessionState.Path.CurrentLocation.ToString();
 
-    if ($currentPath.Contains("/Users/$(whoami)")) {
-        $currentPath = $currentPath.Replace("/Users/$(whoami)", "~");
+    if ($currentPath.Contains("C:\Users\$($username)")) {
+        $currentPath = $currentPath.Replace("C:\Users\$($username)", "~");
     }
 
-    Write-Host ("$(whoami)($($currentPath))") -NoNewLine -ForegroundColor Green
+    Write-Host ("$($username)($($currentPath))") -NoNewLine -ForegroundColor Green
 
     if ($gitBranch) {
-        Write-Host (" ($($gitBranch))") -ForegroundColor Yellow -NoNewLine
+        Write-Host (" git($($gitBranch))") -ForegroundColor Yellow -NoNewLine
     }
 
     
