@@ -2,20 +2,15 @@
 
 ## Description
 
-This is a repository that includes custom prompts for
+The files in this repository sets a custom prompt on your terminal to show:
+
+- Your username
+- Your location in the filesystem
+- Which Git branch you're in, if any
+
+These prompts are for
 [PowerShell](https://learn.microsoft.com/en-us/powershell/) and
-[Zsh](https://www.zsh.org/). PowerShell is often used in Windows, while Zsh is
-available on macOS and Linux.
-
-### Background
-
-While using Linux, I set a custom prompt for Zsh to display three pieces of
-information: my username, my current working folder, and my git branch. When I
-worked on macOS, the same script worked! However, when I worked on Windows, it
-would not work.
-
-The point of these scripts is to provide a neater and more standardized shell
-prompts across my computers.
+[Zsh](https://www.zsh.org/).
 
 ## Visuals
 
@@ -26,3 +21,40 @@ prompts across my computers.
 ### Custom Prompt on Zsh (macOS/Linux)
 
 ![macOS custom prompt in Zsh](./.github/assets/macos-custom-prompt.png)
+
+## Installation
+
+Please make sure you have [Git](https://git-scm.org/) installed.
+
+### Windows
+
+> [!IMPORTANT]
+> Windows users must to enable script execution:
+>
+> ```powershell
+> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+> ```
+
+Append the contents of `powershell_prompt.ps1` to your `$profile`:
+
+```pwsh
+New-Item -Path $profile -ItemType "file" -Force
+$text = Invoke-WebRequest -Uri https://raw.githubusercontent.com/calejvaldez/custom-prompts/refs/heads/main/powershell_prompt.ps1 -UseBasicParsing | Select-Object -ExpandProperty Content
+Add-Content -Path $profile -Value $text
+```
+
+### macOS/Linux
+
+> [!IMPORTANT]
+> Linux users will have to install Zsh and change their shell:
+>
+> ```shell
+> chsh -s $(which zsh)
+> ```
+
+Append the contents of `zsh_prompt.zsh` to your `.zshrc`:
+
+```shell
+touch ~/.zshrc
+curl https://raw.githubusercontent.com/calejvaldez/custom-prompts/refs/heads/main/zsh_prompt.zsh >> ~/.zshrc
+```

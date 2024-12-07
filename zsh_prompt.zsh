@@ -1,3 +1,7 @@
+# zsh_prompt.zsh
+# The next few lines sets a custom prompt for Zsh.
+# https://github.com/calejvaldez/custom-prompts/
+
 autoload -U colors && colors # pretty colors
 autoload -Uz vcs_info # enable vcs_info
 

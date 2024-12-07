@@ -1,7 +1,6 @@
 # powershell_prompt.ps1
-# Carlos Valdez
-#
-# Find their profile using `$PROFILE`.
+# The next few lines sets a custom prompt for PowerShell.
+# https://github.com/calejvaldez/custom-prompts/
 
 function prompt {
     $gitBranch = git rev-parse --abbrev-ref HEAD
