@@ -39,8 +39,7 @@ Append the contents of `powershell_prompt.ps1` to your `$profile`:
 
 ```pwsh
 New-Item -Path $profile -ItemType "file" -Force
-$text = Invoke-WebRequest -Uri https://raw.githubusercontent.com/calejvaldez/custom-prompts/refs/heads/main/powershell_prompt.ps1 -UseBasicParsing | Select-Object -ExpandProperty Content
-Add-Content -Path $profile -Value $text
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/calejvaldez/custom-prompts/refs/heads/main/powershell_prompt.ps1 -UseBasicParsing | Select-Object -ExpandProperty Content | Add-Content -Path $profile
 ```
 
 ### macOS/Linux
